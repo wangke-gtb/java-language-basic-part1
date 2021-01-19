@@ -3,6 +3,10 @@ package com.twc.javabasic;
 import com.twc.javabasic.util.ExamScore;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BooleanOperatorsTest {
@@ -20,7 +24,19 @@ class BooleanOperatorsTest {
         //  If you meet difficulties, please refer to page 62 of "Core Java Vol 1", section 3.5.6
         //  and 3.5.7.
         // <-start-
-        throw new RuntimeException();
+        if (score.getFinalScore() < 0.0) {
+            return false;
+        }
+
+        List<Double> otherScores = Arrays.asList(score.getTestCases(), score.getRequirement(),
+                score.getCodeFormat(), score.getCodeDetails());
+        int greatThanZeroCount = 0;
+
+        for (double otherScore : otherScores) {
+            greatThanZeroCount += otherScore >= 0.0 ? 1 : 0;
+        }
+
+        return greatThanZeroCount > 2;
         // --end->
     }
 
@@ -49,10 +65,10 @@ class BooleanOperatorsTest {
         //  If you meet difficulties, please refer to page 62 of "Core Java Vol 1", section 3.5.6
         //  and 3.5.7.
         // <--start
-        int north = 0;
-        int south = 0;
-        int east = 0;
-        int west = 0;
+        int north = 1;
+        int south = 2;
+        int east = 4;
+        int west = 8;
         // --end-->
 
         int theNorth = north;
@@ -85,7 +101,7 @@ class BooleanOperatorsTest {
         //  If you meet difficulties, please refer to page 62 of "Core Java Vol 1", section 3.5.6
         //  and 3.5.7.
         // <--start
-        final int mask = 0;
+        final int mask = 0x0f0f_0f0f;
         // --end-->
 
         assertEquals(0x0204_0608, 0x1234_5678 & mask);

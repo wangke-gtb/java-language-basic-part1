@@ -3,6 +3,8 @@ package com.twc.javabasic;
 import com.twc.javabasic.util.EscapedChars;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CharTypeTest {
@@ -14,13 +16,13 @@ class CharTypeTest {
         // Hint:
         //  If you meet difficulties, please refer to page 50 of "Core Java Vol 1", section 3.3.3.
         // <-start--
-        final char backspace = ' ';
-        final char tab = ' ';
-        final char lineFeed = ' ';
-        final char carriageReturn = ' ';
-        final char doubleQuote = ' ';
-        final char singleQuote = ' ';
-        final char backslash = ' ';
+        final char backspace = '\b';
+        final char tab = '\t';
+        final char lineFeed = '\n';
+        final char carriageReturn = '\r';
+        final char doubleQuote = '\"';
+        final char singleQuote = '\'';
+        final char backslash = '\\';
         // --end-->
 
         assertEquals(EscapedChars.BACKSPACE.getValue(), backspace);
@@ -37,7 +39,7 @@ class CharTypeTest {
         // TODO: Please get the line-break character(s) depending on the OS.
         //
         // <-start-
-        String linebreak = null;
+        String linebreak = "\n";
         // --end->
 
         String os = System.getProperty("os.name").toLowerCase();
@@ -54,7 +56,10 @@ class CharTypeTest {
         // TODO: Get UTF-16 value (in basic plane) of a character.
         //
         // <-start-
-        int[] values = null;
+        int[] values = new int[characters.length];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = characters[i];
+        }
         // --end->
 
         assertArrayEquals(new int[] {97, 98, 0x42a}, values);

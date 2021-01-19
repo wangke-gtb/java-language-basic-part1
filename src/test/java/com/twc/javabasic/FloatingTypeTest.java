@@ -7,6 +7,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class FloatingTypeTest {
     // Recommended time used: 10 min
 
+    @Test
+    void should_not_get_rounded_result_if_convert_floating_number_to_integer() {
+        final float floatingPointNumber = 2.75f;
+        final int integer = (int)floatingPointNumber;
+
+        // TODO:
+        //  Please write down the answer directly.
+        //
+        // Hint:
+        //  If you find it difficult, please check page 60 of "Core Java Vol 1", section 3.5.3.
+        // <!--start
+        final int expected = 2;
+        // --end-->
+
+        assertEquals(expected, integer);
+    }
+
     @SuppressWarnings({"divzero", "NumericOverflow"})
     @Test
     void should_judge_special_double_cases() {
@@ -32,7 +49,7 @@ class FloatingTypeTest {
         // Hint:
         //  If you find it difficult, please check page 60 of "Core Java Vol 1", section 3.5.3.
         // <!--start
-        final int expected = Integer.MAX_VALUE;
+        final int expected = 2;
         // --end-->
 
         assertEquals(expected, integer);
@@ -49,7 +66,7 @@ class FloatingTypeTest {
         //  The reference is here:
         //  https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#round-double-
         // <!--start
-        final long rounded = Long.MAX_VALUE;
+        final long rounded = Math.round(floatingPointNumber);
         // --end-->
 
         assertEquals(3L, rounded);
@@ -60,7 +77,7 @@ class FloatingTypeTest {
         // TODO:
         //  please implement the method to pass the test. It is better you call existing
         //  API rather than implemented yourself.
-        throw new RuntimeException("Not implemented");
+        return Double.isNaN(realNumber);
     }
 
     @SuppressWarnings("unused")
@@ -68,6 +85,6 @@ class FloatingTypeTest {
         // TODO:
         //  please implement the method to pass the test. It is better you call existing
         //  API rather than implemented yourself.
-        throw new RuntimeException("Not implemented");
+        return Double.isInfinite(realNumber);
     }
 }

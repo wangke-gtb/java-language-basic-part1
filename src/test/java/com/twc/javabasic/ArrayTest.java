@@ -2,6 +2,8 @@ package com.twc.javabasic;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,12 +17,12 @@ class ArrayTest {
         //   original array into the new array. You should not use `for` or
         //   other kind of loops explicitly.
         // <--start
-
+        newArray = Arrays.copyOf(originalArray, 10);
         // -end->
 
         assertArrayEquals(
-            new int[] {1, 2, 3, 4, 5, 0, 0, 0, 0, 0},
-            newArray
+                new int[] {1, 2, 3, 4, 5, 0, 0, 0, 0, 0},
+                newArray
         );
     }
 
@@ -33,7 +35,8 @@ class ArrayTest {
         // TODO: Please slice the original array into two array objects. You should
         //   not use `for` or other kind of loop explicitly.
         // <--start
-
+        first2Elements = Arrays.copyOfRange(originalArray, 0, 2);
+        last3Elements = Arrays.copyOfRange(originalArray, 2, 5);
         // -end->
 
         assertArrayEquals(new int[] {1, 2}, first2Elements);
@@ -49,7 +52,11 @@ class ArrayTest {
         //   representation. You should use loop to do iteration. You should not
         //   using Stream API.
         // <-start-
-
+        StringBuilder builder = new StringBuilder();
+        for(int i : originalArray) {
+            builder.append(i);
+        }
+        destination = builder.toString();
         // --end->
 
         assertEquals("12345", destination);
@@ -63,7 +70,10 @@ class ArrayTest {
         // TODO: Please reverse the array to a new one. You should not modify original
         //   array.
         // <--start-
-
+        reversed = new String[originalArray.length];
+        for(int i = 0; i < originalArray.length; ++i) {
+            reversed[originalArray.length - i - 1] = originalArray[i];
+        }
         // --end->
 
         assertArrayEquals(new String[] {"fox", "brown", "quick", "A"}, reversed);

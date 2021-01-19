@@ -1,5 +1,7 @@
 package com.twc.javabasic;
 
+import java.util.Objects;
+
 @SuppressWarnings("unused")
 public class PersonForEquals {
     private final String name;
@@ -45,7 +47,18 @@ public class PersonForEquals {
         //
         //  You can refer to page 229 of "Core Java Vol 1", section 5.2.1 and 5.2.2
         // <--start
-        throw new RuntimeException("Not implemented");
+        if (Objects.isNull(obj)) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof PersonForEquals)) {
+            return false;
+        }
+        PersonForEquals that = (PersonForEquals)obj;
+        return Objects.equals(this.name, that.name)
+                && Objects.equals(this.yearOfBirth, that.yearOfBirth);
         // --end-->
     }
 
@@ -63,7 +76,7 @@ public class PersonForEquals {
         //
         //  You can refer to page 235 of "Core Java Vol 1", section 5.2.3.
         // <--start
-        throw new RuntimeException("Not implemented");
+        return Objects.hash(this.name, this.yearOfBirth);
         // --end-->
     }
 }

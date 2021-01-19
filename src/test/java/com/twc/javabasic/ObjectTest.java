@@ -23,7 +23,7 @@ class ObjectTest {
         // TODO:
         //  Please write down your answer directly.
         // <--start
-        final Optional<Boolean> expected = Optional.empty();
+        final Optional<Boolean> expected = Optional.of(true);
         // --end-->
 
         assertEquals(expected.get(), referenceToSameObject);
@@ -40,7 +40,7 @@ class ObjectTest {
         // TODO:
         //  Please write down your answer directly.
         // <--start
-        final Optional<Boolean> expected = Optional.empty();
+        final Optional<Boolean> expected = Optional.of(false);
         // --end-->
 
         assertEquals(expected.get(), referenceToSameObject);
@@ -57,9 +57,9 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 172 of "Core Java Vol 1", section 4.6.2.
         // <--start
-        final String expectedName = "expected";
-        final int expectedYearOfBirth = Integer.MAX_VALUE;
-        final LocalDate expectedRegisteredDate = LocalDate.now();
+        final String expectedName = null;
+        final int expectedYearOfBirth = 0;
+        final LocalDate expectedRegisteredDate = null;
         // --end-->
 
         assertEquals(expectedName, instance.getName());
@@ -79,7 +79,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 164 of "Core Java Vol 1", section 4.5.
         // <--start
-        final int expected = Integer.MAX_VALUE;
+        final int expected = 5;
         // --end-->
 
         assertEquals(expected, value);
@@ -105,7 +105,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 164 of "Core Java Vol 1", section 4.5.
         // <--start
-        final Object expected = new Object();
+        final Object expected = sameReference;
         // --end-->
 
         assertEquals(expected, objectReference);
@@ -123,7 +123,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 164 of "Core Java Vol 1", section 4.5.
         // <--start
-        final String expected = "";
+        final String expected = "Updated Name";
         // --end-->
 
         assertEquals(expected, instance.getName());
@@ -140,7 +140,7 @@ class ObjectTest {
         //
         //  If you find it difficult, please check page 172 of "Core Java Vol 1", section 4.6.1.
         // <--start
-        final String expected = "";
+        final String expected = "methodWithOneParameter(Object)";
         // --end-->
 
         assertEquals(expected, actual);
@@ -160,7 +160,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 172 of "Core Java Vol 1", section 4.6.1.
         // <--start
-        final String expected = "";
+        final String expected = "methodWithTwoParameters(String, Integer)";
         // --end-->
 
         assertEquals(expected, actual);
@@ -176,7 +176,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 172 of "Core Java Vol 1", section 4.6.1.
         // <--start
-        final String expected = "";
+        final String expected = "Untitled";
         // --end-->
 
         assertEquals(expected, instance.getName());
@@ -195,7 +195,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 172 of "Core Java Vol 1", section 4.6
         // <--start
-        final String[] expected = {};
+        final String[] expected = {"Field Initializer", "Initialization Block", "Constructor with argument", "Default constructor"};
         // --end-->
 
         assertArrayEquals(expected, logs);
@@ -211,7 +211,7 @@ class ObjectTest {
         // Hint:
         //  If you find it difficult, please check page 256 of "Core Java Vol 1", section 5.5.
         // <--start
-        final String expected = "";
+        final String expected = "1\n2\n3\n";
         // --end-->
 
         assertEquals(expected, message);
@@ -229,7 +229,7 @@ class ObjectTest {
         // Hint
         //  If you find it difficult, please check page 256 of "Core Java Vol 1", section 5.5.
         // <--start
-        final String expected = "";
+        final String expected = "1\n2\n3\n";
         // --end-->
 
         assertEquals(expected, message);
